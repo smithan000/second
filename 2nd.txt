@@ -1,0 +1,62 @@
+#include <stdio.h>
+#define students 6 
+#define subjects 6 
+
+int main()
+{
+   int i,j;
+   int marks[subjects][students]={
+       {
+         12,45,36,22,66,44
+       },
+       {
+         12,45,36,22,66,44
+       },
+       {
+         12,45,36,22,66,44
+       },
+       {
+         12,45,36,22,66,44
+       },
+       {
+         12,45,36,22,66,44
+       },
+       {
+         12,45,36,22,66,44
+       },
+   };
+   for(i=0;i<subjects;i++){
+       int max=marks[i][0];
+       int min=marks[i][0];
+       for(j=1;j<students;j++){
+           if(marks[i][j]<min){
+               min=marks[i][j];
+           }
+           if(marks[i][j]>max){
+               max=marks[i][j];
+           }
+       }
+       printf("subjects:%d,minumum=%d,maximum=%d \n",i+1,min,max);
+   }
+   printf("Avg score \n");
+   for(i=0;i<subjects;i++){
+       int sum=0;
+       for(j=0;j<students;j++){
+           sum+=marks[i][j];
+       }
+       float avg=(float)sum/students;
+       printf("subjects=%d,avg=%.2f \n",i+1,avg);
+   }
+   printf("less than 12");
+   for(i=0;i<subjects;i++){
+       int count=0;
+       for(j=0;j<students;j++){
+           if (marks[i][j]<12){
+               count++;
+           }
+       }
+       printf("subjects=%d,students=%d \n",i+1,count);
+   }
+
+    return 0;
+}
